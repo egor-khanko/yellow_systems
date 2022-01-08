@@ -1,24 +1,29 @@
-# README
+# Yellow Systems interview task
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Features:
+ - [Authentication](#authentication)
 
-Things you may want to cover:
+### Authentication
+1. Create new account: `POST /api/auth`
 
-* Ruby version
+ | Params | Values |
+ | ------------- | ------------- |
+ | email | Your email |
+ | password | Password entered into registration form |
+ | password_confirmation | Password confirmation entered into registration form |
 
-* System dependencies
 
-* Configuration
+ 2. Log in: `POST /api/auth/sign_in`
 
-* Database creation
+ | Params | Values |
+ | ------------- | ------------- |
+ | email | Your email |
+ | password | Your password |
 
-* Database initialization
+ 3. Make a request: `GET /api`
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ | Headers | Values |
+ | ------------- | ------------- |
+ | uid | UID from log in response headers |
+ | client | Client from log in response headers |
+ | access-token | Access token log in response headers |

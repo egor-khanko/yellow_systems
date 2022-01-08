@@ -14,8 +14,10 @@ gem 'pg', '~> 1.1'
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
 
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
-# gem "jbuilder"
+gem 'grape', '~> 1.6.2'
+
+gem 'devise_token_auth', git: 'https://github.com/lynndylanhurley/devise_token_auth.git'
+gem 'grape_devise_token_auth'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -31,3 +33,7 @@ gem 'bootsnap', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem "rack-cors"
+
+group :development do
+  gem 'grape_on_rails_routes', '~> 0.3.2'
+end
