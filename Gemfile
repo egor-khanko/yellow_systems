@@ -36,4 +36,6 @@ gem 'bootsnap', require: false
 
 group :development do
   gem 'grape_on_rails_routes', '~> 0.3.2'
+
+  gem 'debug', '>= 1.0.0'
 end

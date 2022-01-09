@@ -10,6 +10,9 @@ class Api < Grape::API
     authenticate_user!
   end
 
+  mount Api::Routes::Races::Crud
+  mount Api::Routes::Races::Stats
+
   get do
     { hello: :world! }
   end
