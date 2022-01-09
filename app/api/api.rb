@@ -6,14 +6,16 @@ class Api < Grape::API
   auth :grape_devise_token_auth, resource_class: :user
   helpers GrapeDeviseTokenAuth::AuthHelpers
 
-  before do
-    authenticate_user!
+  namespace do
+    before { authenticate_user! }
+
+    mount Api::Routes::Races::Crud
+    mount Api::Routes::Races::Stats
+
+    get do
+      { hello: :world! }
+    end
   end
 
-  mount Api::Routes::Races::Crud
-  mount Api::Routes::Races::Stats
-
-  get do
-    { hello: :world! }
-  end
+  add_swagger_documentation
 end

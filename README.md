@@ -2,6 +2,7 @@
 
 ## Features:
  - [Authentication](#authentication)
+ - [Documentation](#api_documentation)
 
 ### Authentication
 1. Create new account: `POST /api/auth`
@@ -27,3 +28,6 @@
  | uid | UID from log in response headers |
  | client | Client from log in response headers |
  | access-token | Access token log in response headers |
+
+### API Documentation
+Avaliable at `api/swager_doc` without any authentication

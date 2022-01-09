@@ -17,7 +17,10 @@ gem 'puma', '~> 5.0'
 gem 'grape', '~> 1.6.2'
 
 gem 'devise_token_auth', git: 'https://github.com/lynndylanhurley/devise_token_auth.git'
-gem 'grape_devise_token_auth'
+gem 'grape_devise_token_auth', '~> 0.1.4'
+
+gem 'grape-swagger', '~> 1.4.2'
+gem 'grape-swagger-entity', '~> 0.3'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -31,8 +34,7 @@ gem 'bootsnap', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem "rack-cors"
+gem 'rack-cors'
 
 group :development do
   gem 'grape_on_rails_routes', '~> 0.3.2'

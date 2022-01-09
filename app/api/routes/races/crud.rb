@@ -4,33 +4,37 @@ class Api::Routes::Races::Crud < Grape::API
   RACE_ATTRIBUTES = %i[distance duration].freeze
 
   namespace :races do
+    desc 'Get all races for user', is_array: true
     get { current_user.races }
 
+    desc 'Create new race for user'
     params do
       requires :duration, type: Integer
       requires :distance, type: Integer
     end
     post do
-      Race.new(user_id: current_user.id, **params.slice(*RACE_ATTRIBUTES)).save
+      race = Race.new(user_id: current_user.id, **params.slice(*RACE_ATTRIBUTES)).save
+      present race, with: Entities::Races
     end
 
+    desc 'Update race params'
     params do
       requires :race_id, type: Integer
       optional :duration, type: Integer
       optional :distance, type: Integer
     end
     put ':race_id' do
-      current_user.races.find(params[:race_id]).tap do |race|
-        race.assign_attributes(params.slice(*RACE_ATTRIBUTES))
-        race.save
-      end
+      race = current_user.races.find(params[:race_id])
+      race.assign_attributes(params.slice(*RACE_ATTRIBUTES))
+      present race.save, with: Entities::Racess
     end
 
+    desc 'Delete race'
     params do
       requires :race_id, type: Integer
     end
     delete ':race_id' do
-      current_user.races.find(params[:race_id]).delete
+      present current_user.races.find(params[:race_id]).delete, with: Entities::Races
     end
   end
 end
