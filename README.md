@@ -2,7 +2,7 @@
 
 ## Features:
  - [Authentication](#authentication)
- - [Documentation](#api_documentation)
+ - [Documentation](#api-documentation)
 
 ### Authentication
 1. Create new account: `POST /api/auth`
@@ -30,4 +30,4 @@
  | access-token | Access token log in response headers |
 
 ### API Documentation
-Avaliable at `api/swager_doc` without any authentication
+Avaliable at `api/swagger_doc` without any authentication
