@@ -17,5 +17,28 @@ class Api < Grape::API
     end
   end
 
-  add_swagger_documentation
+  add_swagger_documentation \
+    security_definitions: {
+      access_token: {
+        type: 'apiKey',
+        name: 'access-token',
+        in: 'header'
+      },
+      client: {
+        type: 'apiKey',
+        name: 'client',
+        in: 'header'
+      },
+      uid: {
+        type: 'apiKey',
+        name: 'uid',
+        in: 'header'
+      }
+    },
+    security: [
+      { access_token: [] },
+      { client: [] },
+      { uid: [] }
+    ],
+    schemes: %w[http https]
 end
