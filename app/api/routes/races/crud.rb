@@ -19,7 +19,7 @@ class Api::Routes::Races::Crud < Grape::API
       optional :duration, type: Integer
       optional :distance, type: Integer
     end
-    put do
+    put ':race_id' do
       current_user.races.find(params[:race_id]).tap do |race|
         race.assign_attributes(params.slice(*RACE_ATTRIBUTES))
         race.save
@@ -29,6 +29,8 @@ class Api::Routes::Races::Crud < Grape::API
     params do
       requires :race_id, type: Integer
     end
-    delete { current_user.races.find(params[:race_id]).delete }
+    delete ':race_id' do
+      current_user.races.find(params[:race_id]).delete
+    end
   end
 end
